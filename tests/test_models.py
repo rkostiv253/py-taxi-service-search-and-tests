@@ -35,14 +35,14 @@ class ModelTests(TestCase):
             password="Alice123",
             first_name="alice_first_name",
             last_name="alice_last_name",
-            license_number="12345678",
+            license_number="ALI123456",
         )
         driver2 = get_user_model().objects.create(
             username="Bob",
             password="Bob123",
             first_name="bob_first_name",
             last_name="bob_last_name",
-            license_number="123456",
+            license_number="BOB123456",
         )
         car = Car.objects.create(model="test", manufacturer=manufacturer)
         car.drivers.set([driver1, driver2])
@@ -51,7 +51,7 @@ class ModelTests(TestCase):
     def test_create_driver_with_license_number(self):
         username = "test"
         password = "test123"
-        license_number = "123"
+        license_number = "TST123456"
         driver = get_user_model().objects.create_user(
             username=username,
             password=password,

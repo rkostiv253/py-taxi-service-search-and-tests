@@ -5,8 +5,9 @@ from django.urls import reverse
 from taxi.forms import ManufacturerSearchForm
 
 
-def test_search_manufacturer(self):
-    client = Client()
-    response = client.get(reverse("taxi.views.DriverListView"))
-    self.assertEquals(response.status_code, 200)
-    self.assertIsInstance(response.context["form"], ManufacturerSearchForm)
+class SearchTest(TestCase):
+    def test_search_manufacturer(self):
+        client = Client()
+        response = client.get(reverse("taxi:driver-list"))
+        self.assertEqual(response.status_code, 200)
+        self.assertIsInstance(response.context["search_form"], ManufacturerSearchForm)
